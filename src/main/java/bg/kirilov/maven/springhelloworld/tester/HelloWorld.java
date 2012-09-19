@@ -1,9 +1,9 @@
 package bg.kirilov.maven.springhelloworld.tester;
 
-import bg.kirilov.maven.springhelloworld.impl.SimpleMessageProvider;
+import bg.kirilov.maven.springhelloworld.simple.SimpleMessageProvider;
 import bg.kirilov.maven.springhelloworld.api.MessageProvider;
 import bg.kirilov.maven.springhelloworld.api.MessageRenderer;
-import bg.kirilov.maven.springhelloworld.impl.SimpleMessageRenderer;
+import bg.kirilov.maven.springhelloworld.simple.SimpleMessageRenderer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -14,10 +14,31 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class HelloWorld {
 
+    public static final String RENDERER = "renderer";
+    public static final String PROVIDER = "provider";
+
     public static void main(String[] args) {
-        main_annotations(args);
+        main_SetterInj(args);
+//        main_annotations(args);
 //        main_withXML(args);
 //        main_StraightForward(args);
+    }
+
+    public static void main_SetterInj(String[] args) {
+
+        String xmlConfigLocation = "META-INF/spring/app-context-setter-inj-xml.xml";
+        String annotationConfigLocation = "META-INF/spring/app-context-setter-inj-annotation.xml";
+
+        GenericXmlApplicationContext context = new GenericXmlApplicationContext();
+//        context.load(xmlConfigLocation);
+        context.load(annotationConfigLocation);
+        context.refresh();
+
+//        MessageProvider provider = context.getBean(PROVIDER, MessageProvider.class);
+//        System.out.println(provider.getMessage());
+
+        MessageRenderer renderer = context.getBean(RENDERER, MessageRenderer.class);
+        renderer.render();
     }
 
     /**

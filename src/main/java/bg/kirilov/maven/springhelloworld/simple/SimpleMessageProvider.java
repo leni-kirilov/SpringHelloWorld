@@ -1,4 +1,4 @@
-package bg.kirilov.maven.springhelloworld.impl;
+package bg.kirilov.maven.springhelloworld.simple;
 
 import bg.kirilov.maven.springhelloworld.api.MessageProvider;
 import org.springframework.stereotype.Service;

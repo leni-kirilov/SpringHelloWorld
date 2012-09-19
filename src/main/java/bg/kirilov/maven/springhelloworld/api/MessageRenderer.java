@@ -6,7 +6,7 @@ package bg.kirilov.maven.springhelloworld.api;
  */
 public interface MessageRenderer {
 
-    public void setMessageProvider(MessageProvider provider);
+    public void setMessageProvider(MessageProvider messageProvider);
 
     public void render();
 }
