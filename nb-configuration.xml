@@ -20,6 +20,10 @@
         <config-files>
             <config-file>src/main/resources/META-INF/spring/app-context-annotation.xml</config-file>
             <config-file>src/main/resources/META-INF/spring/app-context.xml</config-file>
+            <config-file>src/main/resources/META-INF/spring/app-context-constructor-inj-annotation.xml</config-file>
+            <config-file>src/main/resources/META-INF/spring/app-context-constructor-inj-xml.xml</config-file>
+            <config-file>src/main/resources/META-INF/spring/app-context-setter-inj-annotation.xml</config-file>
+            <config-file>src/main/resources/META-INF/spring/app-context-setter-inj-xml.xml</config-file>
         </config-files>
         <config-file-groups/>
     </spring-data>

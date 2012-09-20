@@ -26,41 +26,26 @@ public class HelloWorld {
 
     public static void main_SetterInj(String[] args) {
 
-        String xmlConfigLocation = "META-INF/spring/app-context-setter-inj-xml.xml";
-        String annotationConfigLocation = "META-INF/spring/app-context-setter-inj-annotation.xml";
+        //Usage of more flexible GenericXmlApplicationContext with both xml declarative and annotation's based DI for Spring
+        String simpleAnnotationConfigLocation = "META-INF/spring/app-context-annotation.xml";
+        String simpleXmlDeclarativeConfigLocation = "META-INF/spring/app-context.xml";
+
+//        Usage of @Autowire and Setter Dep.Inj
+        String setterInjXmlConfigLocation = "META-INF/spring/app-context-setter-inj-xml.xml";
+        String setterInjAnnotationConfigLocation = "META-INF/spring/app-context-setter-inj-annotation.xml";
+
+        //        Usage of @Autowire and Constructor Dep.Inj
+        String constructorInjXmlConfigLocation = "META-INF/spring/app-context-constructor-inj-xml.xml";
+        String constructorInjAnnotationConfigLocation = "META-INF/spring/app-context-constructor-inj-annotation.xml";
 
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
-//        context.load(xmlConfigLocation);
-        context.load(annotationConfigLocation);
+        context.load(setterInjXmlConfigLocation);
         context.refresh();
 
-//        MessageProvider provider = context.getBean(PROVIDER, MessageProvider.class);
-//        System.out.println(provider.getMessage());
-
-        MessageRenderer renderer = context.getBean(RENDERER, MessageRenderer.class);
-        renderer.render();
-    }
-
-    /**
-     * Usage of more flexible GenericXmlApplicationContext with both xml declarative and annotation's based DI for
-     * Spring
-     *
-     * @param args
-     */
-    public static void main_annotations(String[] args) {
-        //both ways are valid
-        String annotationConfigLocation = "META-INF/spring/app-context-annotation.xml";
-        String xmlDeclarativeConfigLocation = "META-INF/spring/app-context.xml";
-
-        GenericXmlApplicationContext context = new GenericXmlApplicationContext();
-//        for lazy configuration
-        context.load(xmlDeclarativeConfigLocation);
-        context.refresh();
-
-        MessageProvider provider = context.getBean("provider", MessageProvider.class);
+        MessageProvider provider = context.getBean(PROVIDER, MessageProvider.class);
         System.out.println(provider.getMessage());
 
-        MessageRenderer renderer = context.getBean("renderer", MessageRenderer.class);
+        MessageRenderer renderer = context.getBean(RENDERER, MessageRenderer.class);
         renderer.render();
     }
 
@@ -88,10 +73,9 @@ public class HelloWorld {
      */
     @Deprecated
     public static void main_StraightForward(String[] args) {
-        MessageProvider msgProvider = new SimpleMessageProvider();
-        MessageRenderer msgRenderer = new SimpleMessageRenderer();
-
-        msgRenderer.setMessageProvider(msgProvider);
-        msgRenderer.render();
+//        MessageProvider msgProvider = new SimpleMessageProvider();
+//        MessageRenderer msgRenderer = new SimpleMessageRenderer();
+//        msgRenderer.setMessageProvider(msgProvider);
+//        msgRenderer.render();
     }
 }
