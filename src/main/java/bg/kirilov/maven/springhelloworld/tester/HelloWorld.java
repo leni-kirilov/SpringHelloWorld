@@ -30,11 +30,11 @@ public class HelloWorld {
         String simpleAnnotationConfigLocation = "META-INF/spring/app-context-annotation.xml";
         String simpleXmlDeclarativeConfigLocation = "META-INF/spring/app-context.xml";
 
-//        Usage of @Autowire and Setter Dep.Inj
+        //Usage of @Autowire and Setter Dep.Inj
         String setterInjXmlConfigLocation = "META-INF/spring/app-context-setter-inj-xml.xml";
         String setterInjAnnotationConfigLocation = "META-INF/spring/app-context-setter-inj-annotation.xml";
 
-        //        Usage of @Autowire and Constructor Dep.Inj
+        //Usage of @Autowire and Constructor Dep.Inj
         String constructorInjXmlConfigLocation = "META-INF/spring/app-context-constructor-inj-xml.xml";
         String constructorInjAnnotationConfigLocation = "META-INF/spring/app-context-constructor-inj-annotation.xml";
 
